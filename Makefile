@@ -1,4 +1,4 @@
-.PHONY: rebuild
+.PHONY: rebuild clean
 
 rebuild:
 	@bash ./script/rebuild
