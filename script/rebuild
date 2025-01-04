@@ -4,7 +4,7 @@
 
 set -e
 
-pushd ~/dotfiles/nixos/ &>/dev/null
+pushd ~/.dotfiles/nixos/ &>/dev/null
 
 alejandra . &>/dev/null \
   || ( alejandra . ; echo "formatting failed!" && exit 1)
