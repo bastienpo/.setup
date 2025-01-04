@@ -4,4 +4,4 @@ rebuild:
 	@bash ./script/rebuild
 
 clean:
-	@rm -rf *.log
+	@rm -rf **/*.log

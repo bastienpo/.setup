@@ -62,7 +62,7 @@
       neovim
       code-cursor
       alejandra
-      direnv
+      stow
       bat
       fzf
       tmux
@@ -78,7 +78,6 @@
       enable = true;
       plugins = [
         "git"
-        "direnv"
         "fzf"
       ];
       theme = "robbyrussell";
