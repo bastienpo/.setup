@@ -60,7 +60,7 @@
       libnotify
       ghostty
       neovim
-      code-cursor
+      vscode
       alejandra
       stow
       bat
