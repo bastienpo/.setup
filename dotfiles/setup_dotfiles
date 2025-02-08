@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+pushd ~/.setup/dotfiles &>/dev/null
+
+stow -t /home/h nvim tmux ghostty
+
+popd &> /dev/null
