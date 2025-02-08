@@ -11,4 +11,4 @@ initial-command = tmux
 
 window-padding-x = 16
 window-padding-y = 8,2
-window-decoration = false
+window-decoration = none

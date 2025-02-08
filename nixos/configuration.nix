@@ -3,9 +3,14 @@
   pkgs,
   ...
 }: {
+  imports = [ ./user.nix ]; 
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.firewall.enable = true;
+  networking.nftables.enable = true;
 
   networking.networkmanager.enable = true;
 
@@ -34,7 +39,7 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "euro";
+    variant = "intl";
   };
 
   # Audio configuration
@@ -45,43 +50,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-
-  # User configuration
-  users.users.h = {
-    isNormalUser = true;
-    description = "h";
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      git
-      gcc
-      gnumake
-      libnotify
-      ghostty
-      neovim
-      vscode
-      alejandra
-      stow
-      bat
-      fzf
-      tmux
-      ripgrep
-      bruno
-      discord
-    ];
-  };
-
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "fzf"
-      ];
-      theme = "robbyrussell";
-    };
   };
 
   # Docker configuration
@@ -95,6 +63,10 @@
   programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   services.flatpak.enable = true;
+
+  nix.settings.trusted-substituters = ["https://cache.flox.dev"];
+  nix.settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
 }
