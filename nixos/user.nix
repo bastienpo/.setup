@@ -25,6 +25,7 @@
       ripgrep
       stow
       just
+      jq
     ];
   };
 

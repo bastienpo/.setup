@@ -3,3 +3,6 @@ setup_dotfiles:
 
 unlink_dotfiles:
     stow -d ~/.setup/dotfiles -t ~ -D nvim tmux ghostty
+
+upgrade:
+    sudo nixos-rebuild switch --upgrade    
