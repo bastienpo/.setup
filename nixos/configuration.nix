@@ -22,18 +22,7 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   services.xserver.excludePackages = [pkgs.xterm];
-
-  # Gnome configuration
-  services.gnome.core-utilities.enable = false; # remove defaults apps
-  environment.gnome.excludePackages = [pkgs.gnome-tour];
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
-    nautilus
-    evince
-  ];
 
   documentation.nixos.enable = false;
 
@@ -43,7 +32,6 @@
   };
 
   # Audio configuration
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

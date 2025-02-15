@@ -13,8 +13,6 @@
       direnv
       gcc
       gnumake
-      libnotify
-      bruno
       discord
       insomnia
       code-cursor
@@ -25,7 +23,8 @@
       ripgrep
       stow
       just
-      jq
+      wofi
+      hyprpaper
     ];
   };
 
@@ -47,5 +46,11 @@
     lfs = {
       enable = true;
     };
+  };
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 }

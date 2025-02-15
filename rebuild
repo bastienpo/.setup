@@ -27,5 +27,3 @@ current=$(nixos-rebuild list-generations | grep current)
 git commit -am "$current"
 
 popd &> /dev/null
-
-notify-send -e "NixOS system was rebuilt!" --icon=software-update-available
