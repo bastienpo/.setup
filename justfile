@@ -15,9 +15,10 @@ unlink_dotfiles:
 format:
     @alejandra . &>/dev/null || ( alejandra . ; echo "formatting failed!" && exit 1)
 
+# Rebuild the nixos configuration
 [working-directory: 'nixos']
 rebuild: format
     git diff -U0 '*.nix'
-    echo "NixOS Rebuilding ..."
     sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+    rm nixos-switch.log
     git commit -am "$(nixos-rebuild list-generations | grep current)"
