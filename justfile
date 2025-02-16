@@ -13,6 +13,7 @@ unlink_dotfiles:
 
 # Format the nixos configuration
 format:
+    @echo "Formatting nixos configuration..."
     @alejandra . &>/dev/null || ( alejandra . ; echo "formatting failed!" && exit 1)
 
 # Rebuild the nixos configuration
