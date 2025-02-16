@@ -25,6 +25,7 @@
       just
       wofi
       hyprpaper
+      brightnessctl
     ];
   };
 

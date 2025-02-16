@@ -9,6 +9,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 
