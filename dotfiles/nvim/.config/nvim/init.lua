@@ -1,4 +1,5 @@
-require("config.lazy")
+require("plugins.lazy")
+require("plugins.telescope")
 require("config.options")
 require("config.mappings")
 require("config.theme")

@@ -9,9 +9,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 
@@ -25,7 +22,17 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   services.xserver.excludePackages = [pkgs.xterm];
+  services.gnome.core-utilities.enable = false;
+
+  environment.gnome.excludePackages = [pkgs.gnome-tour];
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.pop-shell
+    nautilus
+    evince
+  ];
 
   documentation.nixos.enable = false;
 
