@@ -14,7 +14,6 @@
       gcc
       gnumake
       discord
-      insomnia
       code-cursor
       alejandra
       bat

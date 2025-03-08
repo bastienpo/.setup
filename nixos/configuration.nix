@@ -6,8 +6,10 @@
   imports = [./user.nix];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
 
   networking.firewall.enable = true;
   networking.nftables.enable = true;
