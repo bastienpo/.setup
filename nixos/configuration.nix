@@ -3,8 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [./user.nix];
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -67,6 +65,36 @@
 
   services.flatpak.enable = true;
 
-  nix.settings.trusted-substituters = ["https://cache.flox.dev"];
-  nix.settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
+  users.users.h = {
+    isNormalUser = true;
+    extraGroups = ["networkmanager" "wheel" "docker"];
+    shell = pkgs.fish;
+    packages = with pkgs; [
+      oh-my-fish
+      ghostty
+      neovim
+      direnv
+      gcc
+      gnumake
+      just
+      discord
+      code-cursor
+      alejandra
+      bat
+      ripgrep
+      fzf
+      tmux
+      stow
+      pop-launcher
+    ];
+  };
+
+  programs.fish.enable = true;
+
+  programs.git = {
+    enable = true;
+    lfs = {
+      enable = true;
+    };
+  };
 }
